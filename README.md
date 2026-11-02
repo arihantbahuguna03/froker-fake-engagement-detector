@@ -8,9 +8,9 @@ Hourly Airflow job that monitors creator engagement patterns, detects suspicious
 
 ## Problem
 
-Froker pays prize money weekly to top creators based on leaderboard rank. Creators discovered they could game the rank by buying likes and comments. By the time the team noticed, payout had already run.
+The platform pays prize money weekly to top creators based on leaderboard rank. Creators discovered they could game the rank by buying likes and comments. By the time the team noticed, payout had already run.
 
-**Result:** Fake-engagement creators won prize money. Genuine creators lost. Brands lost trust in Froker's creator quality.
+**Result:** Fake-engagement creators won prize money. Genuine creators lost. Brands lost trust in the platform's creator quality.
 
 ---
 
@@ -66,7 +66,7 @@ Airflow (hourly, runs 30 min before payout job)
 ## Sample Slack Alert
 
 ```
-🚨 Froker Engagement Alert — DEMO_CREATOR_002
+🚨 Engagement Alert — DEMO_CREATOR_002
 Status: FLAGGED
 Signals detected:
   • velocity:P002:80_events_in_5min
