@@ -37,11 +37,36 @@ from demo_data import (
     STATE_FILE_PATH,
 )
 
-# Detection thresholds
-VELOCITY_WINDOW_MINUTES = 5
-VELOCITY_THRESHOLD      = 50
-IP_CLUSTER_THRESHOLD    = 0.60
-ZSCORE_THRESHOLD        = 3.0
+
+def _load_detection_config() -> tuple[int, int, float, float]:
+    """
+    Load calibrated fraud detection thresholds from detection_config.py.
+
+    Thresholds were calibrated by analysing real fraud incident patterns and
+    creator baseline distributions. Setting them too low → false positives that
+    harm genuine creators; too high → missed fraud that costs prize money.
+
+    Implementation: proprietary — available on request.
+    Copy detection_config.example.py → detection_config.py to run with your own values.
+    """
+    try:
+        import detection_config
+        return (
+            detection_config.VELOCITY_WINDOW_MINUTES,
+            detection_config.VELOCITY_THRESHOLD,
+            detection_config.IP_CLUSTER_THRESHOLD,
+            detection_config.ZSCORE_THRESHOLD,
+        )
+    except ImportError:
+        raise RuntimeError(
+            "detection_config.py not found. "
+            "Copy detection_config.example.py → detection_config.py and fill in your values."
+        )
+
+
+VELOCITY_WINDOW_MINUTES, VELOCITY_THRESHOLD, IP_CLUSTER_THRESHOLD, ZSCORE_THRESHOLD = (
+    _load_detection_config()
+)
 
 
 # ── State management ─────────────────────────────────────────────────────────
