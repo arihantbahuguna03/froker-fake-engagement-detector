@@ -1,5 +1,5 @@
 """
-Froker Fake Engagement Detector
+Fake Engagement Detector
 =================================
 Hourly Airflow job that monitors creator engagement patterns and flags
 suspicious activity before prize payouts run.
@@ -9,7 +9,7 @@ No ML framework — rule-based detection + z-score anomaly detection.
 
 Problem:
   Creators game the leaderboard by buying likes and comments.
-  Froker pays out prize money based on rank — fake engagement directly
+  The platform pays out prize money based on rank — fake engagement directly
   costs money and destroys genuine creator trust.
 
 Detection signals:
@@ -135,7 +135,7 @@ def next_state(current: str, signal_count: int) -> str:
 def post_alert(creator_id: str, state: str, signals: list[str]) -> None:
     icon  = "🚨" if state == "FLAGGED" else "👀"
     lines = [
-        f"{icon} *Froker Engagement Alert — {creator_id}*",
+        f"{icon} *Engagement Alert — {creator_id}*",
         f"Status: *{state}*",
         f"Signals detected:",
     ]
@@ -187,5 +187,5 @@ def run_detector(events: list[dict] | None = None) -> dict:
 
 
 if __name__ == "__main__":
-    print("\nFroker Fake Engagement Detector\n" + "="*40)
+    print("\nFake Engagement Detector\n" + "="*40)
     run_detector()

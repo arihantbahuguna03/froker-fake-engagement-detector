@@ -1,4 +1,4 @@
-# Froker Fake Engagement Detector
+# Fake Engagement Detector
 
 Hourly Airflow job that monitors creator engagement patterns, detects suspicious activity using rule-based checks + z-score anomaly detection, and alerts the team before prize payouts run.
 

@@ -1,5 +1,5 @@
 """
-Airflow DAG — Froker Fake Engagement Detector
+Airflow DAG — Fake Engagement Detector
 Runs hourly. Checks all creator engagement events for anomalies.
 Sends Slack alert for WATCH and FLAGGED creators before payout runs.
 """
@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 
-DAG_ID    = "froker_fake_engagement_detector"
+DAG_ID    = "fake_engagement_detector"
 DAG_OWNER = "demo-owner@demo.com"
 
 default_args = {
@@ -25,7 +25,7 @@ with DAG(
     schedule="30 * * * *",
     start_date=datetime(2024, 8, 1),
     catchup=False,
-    tags=["froker", "fraud", "engagement"],
+    tags=["fraud", "engagement"],
 ) as dag:
 
     def run_detection():

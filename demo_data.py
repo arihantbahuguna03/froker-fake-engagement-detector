@@ -58,5 +58,5 @@ CREATOR_BASELINES = {
 }
 
 SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/DEMO_WEBHOOK_URL"
-STATE_FILE_PATH   = "/tmp/froker_engagement_state.json"
+STATE_FILE_PATH   = "/tmp/engagement_detector_state.json"
 DAG_OWNER         = "demo-owner@demo.com"
